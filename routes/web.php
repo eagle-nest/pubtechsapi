@@ -15,13 +15,17 @@
 //    return $app->version();
 //});
 $app->group(['prefix' => 'api/v1'], function($app) {
-    $app->get('user/{id}', 'UserController@getuser');
+    $app->get('user/{id}', 'UserController@getUser');
 
     $app->post('user', 'UserController@createUser');
 
     $app->delete('user/{id}', 'UserController@deleteUser');
-    
+
     $app->post('user/login', 'UserController@login');
-    
+
     $app->post('user/signup', 'UserController@signup');
+
+    $app->post('user/forgot', 'UserController@forgotPassword');
+    $app->post('user/reset/{token}', 'UserController@resetPassword');
+    $app->get('user/verification/{token}', 'UserController@userVerification');
 });

@@ -16,14 +16,17 @@ class CreateTableUsers extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('password');
             $table->string('phone');
             $table->string('city');
             $table->text('address');
             $table->string('user_role');            
             $table->string('seller_type');
-            $table->boolean('is_disabled');
+            $table->string('token_verification');
+            $table->string('token_forgot');
+            $table->boolean('is_verified')->default(0);
+            $table->boolean('is_disabled')->default(0);
             $table->timestamps();
         });
     }

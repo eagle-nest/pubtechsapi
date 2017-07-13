@@ -1,18 +1,18 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Model;
 
+class Users extends Model {
 
-class Users extends Model 
-{
     const ROLE_SUPER_ADMIN = 'superadmin';
     const ROLE_ADMIN = 'admin';
     const ROLE_USER = 'user';
 
     protected $table = 'users';
     protected $fillable = [
-      'name','email','password','phone', 'city', 'address', 'user_role', 'seller_type',
+        'name', 'email', 'password', 'phone', 'city', 'address', 'user_role', 'seller_type', 'token_verification', 'token_forgot', 'is_verified', 'is_disabled'
     ];
 
     /**
@@ -21,6 +21,6 @@ class Users extends Model
      * @var array
      */
     protected $hidden = [
-       
     ];
+
 }
